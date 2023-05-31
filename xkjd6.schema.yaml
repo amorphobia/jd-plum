@@ -216,7 +216,6 @@ key_binder:
     - { when: always, accept: F7, toggle: jffh }
     - { when: has_menu, accept: "'", send: 2 }
     - { when: has_menu, accept: "&", toggle: emoji_cn}
-    - { when: has_menu, accept: "^", toggle: bmms}
 
 recognizer:
   import_preset: default

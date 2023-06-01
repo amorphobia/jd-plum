@@ -46,75 +46,6 @@ switches:
     reset: 1
     states: [ "关顶功提示", "开顶功提示" ]
 
-punctuator:
-  full_shape:
-    ' ' : { commit: '　' }
-    ',' : { commit: ， }
-    '.' : { commit: 。 }
-    '<' : [ 《, 〈, «, ‹ ]
-    '>' : [ 》, 〉, », › ]
-    '?' : { commit: ？ }
-    '/' : { commit: ？ }
-    ';' : { commit: ； }
-    ':' : { commit: ： }
-    '''' : { pair: [ '‘', '’' ] }
-    '"' : { pair: [ '“', '”' ] }
-    '\' : [ 、, ＼ ]
-    '|' : [ ·, ｜, '§', '¦' ]
-    '`' : ｀
-    '~' : ～
-    '!' : { commit: ！ }
-    '@' : ＠
-    '#' : ＃
-    '%' : [ ％, '°', '℃' ]
-    '$' : [ ￥, '$', '€', '£', '¥', '¢', '¤' ]
-    '^' : { commit: …… }
-    '&' : ＆
-    '*' : [ ＊, ·, ・, ×, ※, ❂ ]
-    '(' : （
-    ')' : ）
-    '-' : '-'
-    '_' : ——
-    '+' : '+'
-    '=' : '='
-    '[' : [ 「, 【, 〔, ［ ]
-    ']' : [ 」, 】, 〕, ］ ]
-    '{' : [ 『, 〖, ｛ ]
-    '}' : [ 』, 〗, ｝ ]
-  half_shape:
-    ',' : { commit: ， }
-    '.' : { commit: 。 }
-    '<' : [ 《, 〈, «, ‹ ]
-    '>' : [ 》, 〉, », › ]
-    '?' : { commit: ？ }
-    '/' : { commit: ？ }
-    ';' : { commit: ； }
-    ':' : { commit: ： }
-    '''' : { pair: [ '‘', '’' ] }
-    '"' : { pair: [ '“', '”' ] }
-    '\' : [ 、, '\', ＼ ]
-    '|' : [ ·, '|', ｜, '§', '¦' ]
-    '`' : '`'
-    '~' : [ '~', ～ ]
-    '!' : { commit: ！ }
-    '@' : '@'
-    '#' : '#'
-    '%' : [ '%', ％, '°', '℃' ]
-    '$' : [ ￥, '$', '€', '£', '¥', '¢', '¤' ]
-    '^' : { commit: …… }
-    '&' : '&'
-    '*' : [ '*', ＊, ·, ・, ×, ※, ❂ ]
-    '(' : （
-    ')' : ）
-    '-' : '-'
-    '_' : ——
-    '+' : '+'
-    '=' : '='
-    '[' : [ 「, 【, 〔, ［ ]
-    ']' : [ 」, 】, 〕,  ］ ]
-    '{' : [ 『, 〖, ｛ ]
-    '}' : [ 』, 〗, ｝ ]
-
 engine:
   processors:
     - ascii_composer
@@ -152,7 +83,7 @@ engine:
 speller:
   algebra:
     __include: "layout/algebra"
-  auto_select: true
+  auto_select: false
   alphabet: "zyxwvutsrqponmlkjihgfedcba;`"
   initials: "abcdefghijklmnopqrstuvwxyz;`"
 
@@ -227,6 +158,7 @@ recognizer:
     uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     pinyin: "(?<![`A-Z])`[a-z']*;?$"
     url: "^(www[.]|https?:|ftp:|mailto:).*$"
+    jsq: "^=[^;']+$"
 
 topup:
   __include: "layout/topup"
